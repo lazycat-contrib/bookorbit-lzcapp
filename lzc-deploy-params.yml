@@ -1,0 +1,82 @@
+params:
+  - id: owner_uid
+    type: lzc_uid
+    name: "Library Owner"
+    description: "LazyCat user who owns and manages the BookOrbit library files"
+    optional: false
+
+  - id: timezone
+    type: string
+    name: "Timezone"
+    description: "IANA timezone used by BookOrbit, for example Asia/Shanghai or UTC"
+    default_value: "Asia/Shanghai"
+    optional: false
+
+  - id: admin_username
+    type: string
+    name: "Initial Admin Username"
+    description: "Username for the initial BookOrbit administrator (3-100 characters)"
+    default_value: "admin"
+    optional: false
+
+  - id: admin_name
+    type: string
+    name: "Initial Admin Name"
+    description: "Display name for the initial BookOrbit administrator"
+    default_value: "Administrator"
+    optional: false
+
+  - id: admin_email
+    type: string
+    name: "Initial Admin Email"
+    description: "Valid email address for the initial BookOrbit administrator"
+    default_value: "admin@bookorbit.local"
+    optional: false
+
+  - id: admin_password
+    type: secret
+    name: "Initial Admin Password"
+    description: "At least 8 characters with uppercase, lowercase, and numeric characters"
+    default_value: "$random(len=20)"
+    optional: false
+
+  - id: setup_bootstrap_token
+    type: secret
+    name: "Setup Bootstrap Token"
+    description: "One-time token protecting the initial BookOrbit setup endpoint"
+    default_value: "$random(len=32)"
+    optional: false
+
+  - id: node_max_old_space_size
+    type: string
+    name: "Node.js Heap Limit"
+    description: "Use auto for automatic sizing, or enter a positive memory limit in MB"
+    default_value: "auto"
+    optional: false
+
+locales:
+  zh:
+    owner_uid:
+      name: "书库所属用户"
+      description: "拥有并管理 BookOrbit 书库文件的懒猫用户"
+    timezone:
+      name: "时区"
+      description: "BookOrbit 使用的 IANA 时区，例如 Asia/Shanghai 或 UTC"
+    admin_username:
+      name: "初始管理员用户名"
+      description: "初始 BookOrbit 管理员的用户名（3-100 个字符）"
+    admin_name:
+      name: "初始管理员名称"
+      description: "初始 BookOrbit 管理员的显示名称"
+    admin_email:
+      name: "初始管理员邮箱"
+      description: "初始 BookOrbit 管理员的有效邮箱地址"
+    admin_password:
+      name: "初始管理员密码"
+      description: "至少 8 个字符，且包含大写字母、小写字母和数字"
+    setup_bootstrap_token:
+      name: "初始化令牌"
+      description: "保护 BookOrbit 首次初始化接口的一次性令牌"
+    node_max_old_space_size:
+      name: "Node.js 堆内存限制"
+      description: "填写 auto 自动计算，或输入正整数形式的内存上限（MB）"
