@@ -1,17 +1,15 @@
 package: community.lazycat.app.bookorbit
-version: 2.8.1
+version: 2.9.0
 name: BookOrbit
 description: "BookOrbit: Your Reading Space"
 min_os_version: 1.5.0
 author: bookorbit
 license: AGPL-3.0-only
 homepage: https://github.com/bookorbit/bookorbit
-
 permissions:
   required:
     - net.internet
     - document.private
-
 locales:
   zh:
     name: "BookOrbit"

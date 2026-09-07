@@ -41,7 +41,6 @@ application:
             email: "{{ .U.admin_email }}"
             password: "{{ .U.admin_password }}"
             setupToken: "{{ .U.setup_bootstrap_token }}"
-
     - id: bookorbit-capture-credentials
       auth_required: false
       on: request
@@ -65,7 +64,6 @@ application:
         if (typeof password === "string" && password.length > 0) {
           ctx.flow.set("bookorbit.pending_password", password);
         }
-
     - id: bookorbit-commit-credentials
       auth_required: false
       on: response
@@ -83,7 +81,6 @@ application:
         if (typeof password === "string" && password.length > 0) {
           ctx.persist.set("bookorbit.password", password);
         }
-
     - id: bookorbit-login-autofill
       when:
         - /login*
@@ -98,11 +95,10 @@ application:
               default: "{{ .U.admin_password }}"
             userSelector: "#username"
             passwordSelector: "#password"
-
 services:
   app:
-    # upstream: ghcr.io/bookorbit/bookorbit:2.8.1
-    image: ghcr.nju.edu.cn/bookorbit/bookorbit:2.8.1
+    # upstream: ghcr.io/bookorbit/bookorbit:2.9.0
+    image: ghcr.nju.edu.cn/bookorbit/bookorbit:2.9.0
     environment:
       - NODE_ENV=production
       - PORT=3000
@@ -128,7 +124,6 @@ services:
     binds:
       - /lzcapp/documents/{{ .U.owner_uid }}/books:/books
       - /lzcapp/var/app:/data
-
   postgres:
     # upstream: pgvector/pgvector:0.8.6-pg18
     image: docker.1ms.run/pgvector/pgvector:0.8.6-pg18
@@ -147,7 +142,6 @@ services:
       timeout: 5s
       retries: 10
       start_period: 20s
-
 usage: |
   首次打开时，初始化页面会自动填入部署向导设置的管理员资料和初始化令牌；确认后即可创建管理员账号。
   后续登录会自动填入最近一次成功登录或修改后的凭据。书库文件存放在所选用户的私有文稿目录中。
