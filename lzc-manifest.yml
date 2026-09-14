@@ -97,8 +97,8 @@ application:
             passwordSelector: "#password"
 services:
   app:
-    # upstream: ghcr.io/bookorbit/bookorbit:2.9.0
-    image: ghcr.nju.edu.cn/bookorbit/bookorbit:2.9.0
+    # upstream: ghcr.io/bookorbit/bookorbit:2.10.0
+    image: ghcr.nju.edu.cn/bookorbit/bookorbit:2.10.0
     environment:
       - NODE_ENV=production
       - PORT=3000
